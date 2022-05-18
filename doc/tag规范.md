@@ -54,5 +54,5 @@ docker pull dragonwell-registry.cn-hangzhou.cr.aliyuncs.com/dragonwell/dragonwel
 | nightly | Nightly build from master | 
 
 - 示例
-  docker pull dragonwell-registry.cn-hangzhou.cr.aliyuncs.com/dragonwell/dragonwell:11-alpine
+  docker pull dragonwell-registry.cn-hangzhou.cr.aliyuncs.com/dragonwell/dragonwell:11-nightly
 
