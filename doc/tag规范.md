@@ -6,6 +6,8 @@
 - FROM openjdk:11
 + FROM dragonwell-registry.cn-hangzhou.cr.aliyuncs.com/dragonwell/dragonwell:11
 ```
+## 定制镜像需求
+JRE/slim镜像开发中，对于镜像的疑问和需求请[提交此处](https://github.com/dragonwell-releng/dragonwell-containers/issues)
 
 
 ## Tags
