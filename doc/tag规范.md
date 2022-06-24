@@ -33,9 +33,9 @@ Dragonwell 11和17针对alpine平台提供了alpine构建，体积更小，目�
 
 | Version | Architecture  | Platform             |
 |---------|---------------|----------------------|
-| 8       | amd64,aarch64 | centos,ubuntu,anolis |
-| 11      | amd64,aarch64 | alpine,centos,ubutnu |
-| 17      | amd64,aarch64 | alpine,centos,ubuntu |
+| 8       | amd64,aarch64 | centos,ubuntu,anolis,alinux |
+| 11      | amd64,aarch64 | alpine,centos,ubutnu,alinux |
+| 17      | amd64,aarch64 | alpine,centos,ubuntu,alinux |
 
 #### 小版本支持
 - 对于每次的ga发布，保留以github tag命名的发行版本，如期望指定使用release-dragonwell-8.11.12_jdk8u332-ga而非当前最新版：
