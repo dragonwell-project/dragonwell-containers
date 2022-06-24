@@ -1,8 +1,3 @@
-# ------------------------------------------------------------------------------
-#               NOTE: THIS DOCKERFILE IS GENERATED VIA "update_multiarch.sh"
-#
-#                       PLEASE DO NOT EDIT IT DIRECTLY.
-# ------------------------------------------------------------------------------
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
