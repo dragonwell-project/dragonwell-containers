@@ -17,23 +17,33 @@ FROM ubuntu:20.04
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
 RUN apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata curl ca-certificates fontconfig locales \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata curl ca-certificates fontconfig locales binutils \
     && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
     && locale-gen en_US.UTF-8 \
     && rm -rf /var/lib/apt/lists/*
 
-ENV JAVA_VERSION jdk-11.0.15.11+9
+ENV JAVA_VERSION jdk-17.0.3.0.3+7
 
 RUN set -eux; \
     ARCH="$(dpkg --print-architecture)"; \
     case "${ARCH}" in \
        aarch64|arm64) \
-         ESUM='459bec951d0b2d610bda8cc1fd649406abe4edc8bcda78568b2fca828993f040'; \
-         BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-11.0.15.11.9_jdk-11.0.15-ga/Alibaba_Dragonwell_11.0.15.11.9_aarch64_linux.tar.gz'; \
+         if [ "${EDITION}" = "extended" ];then \
+           ESUM='84c9571fccb7e028c59657712e686cd1560d760a560ee8c76d0f99e2795aafcd'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_aarch64_linux.tar.gz'; \
+         else \
+           ESUM='84c9571fccb7e028c59657712e686cd1560d760a560ee8c76d0f99e2795aafcd'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_aarch64_linux.tar.gz'; \
+         fi \
          ;; \
        amd64|i386:x86-64) \
-         ESUM='2406a9b12682d443aa606213d6c00ec83d96b2d157a70728edd6b9bca80c4eab'; \
-         BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-11.0.15.11.9_jdk-11.0.15-ga/Alibaba_Dragonwell_11.0.15.11.9_x64_linux.tar.gz'; \
+         if [ "${EDITION}" = "extended" ];then \
+           ESUM='8431922266c1a476e1ca2d49c68110c22ec4f989ca0438b0b089ecd9c7ade0ce'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_x64_linux.tar.gz'; \
+         else \
+           ESUM='8431922266c1a476e1ca2d49c68110c22ec4f989ca0438b0b089ecd9c7ade0ce'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_x64_linux.tar.gz'; \
+         fi \
          ;; \
        *) \
          echo "Unsupported arch: ${ARCH}"; \

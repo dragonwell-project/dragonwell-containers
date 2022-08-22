@@ -12,23 +12,35 @@
 # limitations under the License.
 #
 
-FROM openanolis/anolisos:8.4-aarch64
+FROM centos:7
 
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
 RUN yum install -y tzdata openssl curl ca-certificates fontconfig gzip tar \
     && yum clean all
 
-ENV JAVA_VERSION jdk8u332-b09
-
-COPY slim/* /usr/local/bin/
+ENV JAVA_VERSION jdk-11.0.15.11+9
 
 RUN set -eux; \
     ARCH="$(objdump="$(command -v objdump)" && objdump --file-headers "$objdump" | awk -F '[:,]+[[:space:]]+' '$1 == "architecture" { print $2 }')"; \
     case "${ARCH}" in \
        aarch64|arm64) \
-         ESUM='544a2b75c1b5963664395fba4b58bc6012cd1db36b68c0f1886d81d657a0b24b'; \
-         BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-8.11.12_jdk8u332-ga/Alibaba_Dragonwell_8.11.12_aarch64_linux.tar.gz'; \
+         if [ "${EDITION}" = "extended" ];then \
+           ESUM='459bec951d0b2d610bda8cc1fd649406abe4edc8bcda78568b2fca828993f040'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-11.0.15.11.9_jdk-11.0.15-ga/Alibaba_Dragonwell_11.0.15.11.9_aarch64_linux.tar.gz'; \
+         else \
+           ESUM='459bec951d0b2d610bda8cc1fd649406abe4edc8bcda78568b2fca828993f040'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-11.0.15.11.9_jdk-11.0.15-ga/Alibaba_Dragonwell_11.0.15.11.9_aarch64_linux.tar.gz'; \
+         fi \
+         ;; \
+       amd64|i386:x86-64) \
+         if [ "${EDITION}" = "extended" ];then \
+           ESUM='2406a9b12682d443aa606213d6c00ec83d96b2d157a70728edd6b9bca80c4eab'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-11.0.15.11.9_jdk-11.0.15-ga/Alibaba_Dragonwell_11.0.15.11.9_x64_linux.tar.gz'; \
+         else \
+           ESUM='2406a9b12682d443aa606213d6c00ec83d96b2d157a70728edd6b9bca80c4eab'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-11.0.15.11.9_jdk-11.0.15-ga/Alibaba_Dragonwell_11.0.15.11.9_x64_linux.tar.gz'; \
+         fi \
          ;; \
        *) \
          echo "Unsupported arch: ${ARCH}"; \
@@ -45,9 +57,9 @@ RUN set -eux; \
 ENV JAVA_HOME=/opt/java/openjdk \
     PATH="/opt/java/openjdk/bin:$PATH"
 
-RUN bash /usr/local/bin/slim-java.sh /opt/java/openjdk;
-
 RUN echo Verifying install ... \
-    && echo javac -version && javac -version \
-    && echo java -version && java -version \
+    && echo javac --version && javac --version \
+    && echo java --version && java --version \
     && echo Complete.
+
+CMD ["jshell"]

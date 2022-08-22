@@ -16,21 +16,31 @@ FROM alibaba-cloud-linux-3-registry.cn-hangzhou.cr.aliyuncs.com/alinux3/alinux3:
 
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
-RUN yum install -y binutils tzdata openssl curl ca-certificates fontconfig gzip tar \
+RUN yum install binutils -y tzdata openssl curl ca-certificates fontconfig gzip tar binutils \
     && yum clean all
 
-ENV JAVA_VERSION jdk8u332-b09
+ENV JAVA_VERSION jdk-17.0.3.0.3+7
 
 RUN set -eux; \
     ARCH="$(objdump="$(command -v objdump)" && objdump --file-headers "$objdump" | awk -F '[:,]+[[:space:]]+' '$1 == "architecture" { print $2 }')"; \
     case "${ARCH}" in \
        aarch64|arm64) \
-         ESUM='544a2b75c1b5963664395fba4b58bc6012cd1db36b68c0f1886d81d657a0b24b'; \
-         BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-8.11.12_jdk8u332-ga/Alibaba_Dragonwell_8.11.12_aarch64_linux.tar.gz'; \
+         if [ "${EDITION}" = "extended" ];then \
+           ESUM='84c9571fccb7e028c59657712e686cd1560d760a560ee8c76d0f99e2795aafcd'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_aarch64_linux.tar.gz'; \
+         else \
+           ESUM='84c9571fccb7e028c59657712e686cd1560d760a560ee8c76d0f99e2795aafcd'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_aarch64_linux.tar.gz'; \
+         fi \
          ;; \
        amd64|i386:x86-64) \
-         ESUM='03923f200dffddf9eee2aadc0c495674fe0b87cc2eece94a9a8dec84812d12bd'; \
-         BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-8.11.12_jdk8u332-ga/Alibaba_Dragonwell_8.11.12_x64_linux.tar.gz'; \
+         if [ "${EDITION}" = "extended" ];then \
+           ESUM='8431922266c1a476e1ca2d49c68110c22ec4f989ca0438b0b089ecd9c7ade0ce'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_x64_linux.tar.gz'; \
+         else \
+           ESUM='8431922266c1a476e1ca2d49c68110c22ec4f989ca0438b0b089ecd9c7ade0ce'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_x64_linux.tar.gz'; \
+         fi \
          ;; \
        *) \
          echo "Unsupported arch: ${ARCH}"; \
@@ -48,6 +58,8 @@ ENV JAVA_HOME=/opt/java/openjdk \
     PATH="/opt/java/openjdk/bin:$PATH"
 
 RUN echo Verifying install ... \
-    && echo javac -version && javac -version \
-    && echo java -version && java -version \
+    && echo javac --version && javac --version \
+    && echo java --version && java --version \
     && echo Complete.
+
+CMD ["jshell"]

@@ -22,20 +22,29 @@ RUN apt-get update \
     && locale-gen en_US.UTF-8 \
     && rm -rf /var/lib/apt/lists/*
 
-ENV JAVA_VERSION jdk8u332-b09
+ENV JAVA_VERSION jdk-11.0.16.12+8
 
 RUN set -eux; \
     ARCH="$(dpkg --print-architecture)"; \
     case "${ARCH}" in \
        aarch64|arm64) \
-         ESUM='544a2b75c1b5963664395fba4b58bc6012cd1db36b68c0f1886d81d657a0b24b'; \
-         BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-8.11.12_jdk8u332-ga/Alibaba_Dragonwell_8.11.12_aarch64_linux.tar.gz'; \
+         if [ "EDITION" = "extended" ];then \
+           ESUM='bd930ac692bcd2e511cdf5c55a3adddfe18375af79a36dd843d8b52bdb574f5f'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-standard-11.0.16.12_jdk-11.0.16-ga/Alibaba_Dragonwell_Standard_11.0.16.12.8_aarch64_linux.tar.gz'; \
+         else \
+           ESUM='bd930ac692bcd2e511cdf5c55a3adddfe18375af79a36dd843d8b52bdb574f5f'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-standard-11.0.16.12_jdk-11.0.16-ga/Alibaba_Dragonwell_Standard_11.0.16.12.8_aarch64_linux.tar.gz'; \
+         fi \
          ;; \
        amd64|i386:x86-64) \
-         ESUM='03923f200dffddf9eee2aadc0c495674fe0b87cc2eece94a9a8dec84812d12bd'; \
-         BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-8.11.12_jdk8u332-ga/Alibaba_Dragonwell_8.11.12_x64_linux.tar.gz'; \
+         if [ "EDITION" = "extended" ];then \
+           ESUM='42d673d9effff252140e1402959881c3f255ee3a8b8776871fd8e775facb9584'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-standard-11.0.16.12_jdk-11.0.16-ga/Alibaba_Dragonwell_Standard_11.0.16.12.8_x64_linux.tar.gz'; \
+         else \
+           ESUM='42d673d9effff252140e1402959881c3f255ee3a8b8776871fd8e775facb9584'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-standard-11.0.16.12_jdk-11.0.16-ga/Alibaba_Dragonwell_Standard_11.0.16.12.8_x64_linux.tar.gz'; \
+         fi \
          ;; \
-
        *) \
          echo "Unsupported arch: ${ARCH}"; \
          exit 1; \
@@ -52,6 +61,8 @@ ENV JAVA_HOME=/opt/java/openjdk \
     PATH="/opt/java/openjdk/bin:$PATH"
 
 RUN echo Verifying install ... \
-    && echo javac -version && javac -version \
-    && echo java -version && java -version \
+    && echo javac --version && javac --version \
+    && echo java --version && java --version \
     && echo Complete.
+
+CMD ["jshell"]

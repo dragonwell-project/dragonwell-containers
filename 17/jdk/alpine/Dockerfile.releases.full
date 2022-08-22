@@ -16,17 +16,22 @@ FROM alpine:3.16
 
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
+
 RUN apk add --no-cache ca-certificates musl-locales musl-locales-lang openssl tzdata wget
 
-
-ENV JAVA_VERSION jdk-11.0.15.11+9
+ENV JAVA_VERSION jdk-17.0.3.0.3+7
 
 RUN set -eux; \
     ARCH="$(apk --print-arch)"; \
     case "${ARCH}" in \
        amd64|x86_64) \
-         ESUM='52ad29ef644b8c268cf2c5b3d5fc15a9b0be6f246407ddce92e547b8473b642f'; \
-         BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-11.0.15.11.9_jdk-11.0.15-ga/Alibaba_Dragonwell_11.0.15.11.9_x64_alpine-linux.tar.gz'; \
+         if [ "${EDITION}" = "extended" ];then \
+           ESUM='4620312ff9fa2772aed71315280af7c4c65cfa91e4a77bd47f6471ed279ed8a7'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_x64_alpine-linux.tar.gz'; \
+         else \
+           ESUM='4620312ff9fa2772aed71315280af7c4c65cfa91e4a77bd47f6471ed279ed8a7'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_x64_alpine-linux.tar.gz'; \
+         fi \
          ;; \
        *) \
          echo "Unsupported arch: ${ARCH}"; \
