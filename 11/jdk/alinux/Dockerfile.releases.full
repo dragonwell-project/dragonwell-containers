@@ -12,8 +12,6 @@
 # limitations under the License.
 #
 
-ARG EDITION=extended
-
 FROM alibaba-cloud-linux-3-registry.cn-hangzhou.cr.aliyuncs.com/alinux3/alinux3:latest
 
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
@@ -22,6 +20,8 @@ RUN yum install -y binutils tzdata openssl curl ca-certificates fontconfig gzip 
     && yum clean all
 
 ENV JAVA_VERSION jdk-11.0.15.11+9
+
+ARG EDITION=extended
 
 RUN set -eux; \
     ARCH="$(objdump="$(command -v objdump)" && objdump --file-headers "$objdump" | awk -F '[:,]+[[:space:]]+' '$1 == "architecture" { print $2 }')"; \

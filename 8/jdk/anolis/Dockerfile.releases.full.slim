@@ -11,8 +11,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-ARG EDITION=extended
 ARG OS_ARCH=x86_64
 
 FROM openanolis/anolisos:8.4-${OS_ARCH}
@@ -25,6 +23,8 @@ RUN yum install -y tzdata openssl curl ca-certificates fontconfig gzip tar \
 ENV JAVA_VERSION jdk8u332-b09
 
 COPY slim/* /usr/local/bin/
+
+ARG EDITION=extended
 
 RUN set -eux; \
     ARCH="$(objdump="$(command -v objdump)" && objdump --file-headers "$objdump" | awk -F '[:,]+[[:space:]]+' '$1 == "architecture" { print $2 }')"; \

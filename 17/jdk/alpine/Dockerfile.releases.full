@@ -12,8 +12,6 @@
 # limitations under the License.
 #
 
-ARG EDITION=extended
-
 FROM alpine:3.16
 
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
@@ -22,6 +20,8 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 RUN apk add --no-cache ca-certificates musl-locales musl-locales-lang openssl tzdata wget
 
 ENV JAVA_VERSION jdk-17.0.3.0.3+7
+
+ARG EDITION=extended
 
 RUN set -eux; \
     ARCH="$(apk --print-arch)"; \

@@ -12,8 +12,6 @@
 # limitations under the License.
 #
 
-ARG EDITION=extended
-
 FROM centos:7
 
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
@@ -22,6 +20,8 @@ RUN yum install -y tzdata openssl curl ca-certificates fontconfig gzip tar binut
     && yum clean all
 
 ENV JAVA_VERSION jdk-17.0.3.0.3+7
+
+ARG EDITION=extended
 
 RUN set -eux; \
     ARCH="$(objdump="$(command -v objdump)" && objdump --file-headers "$objdump" | awk -F '[:,]+[[:space:]]+' '$1 == "architecture" { print $2 }')"; \
