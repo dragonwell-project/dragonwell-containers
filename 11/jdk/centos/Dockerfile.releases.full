@@ -12,6 +12,8 @@
 # limitations under the License.
 #
 
+ARG EDITION=extended
+
 FROM centos:7
 
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'

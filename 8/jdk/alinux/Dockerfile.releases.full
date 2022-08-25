@@ -12,6 +12,8 @@
 # limitations under the License.
 #
 
+ARG EDITION=extended
+
 FROM alibaba-cloud-linux-3-registry.cn-hangzhou.cr.aliyuncs.com/alinux3/alinux3:latest
 
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
