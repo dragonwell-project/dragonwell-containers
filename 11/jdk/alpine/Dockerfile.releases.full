@@ -31,8 +31,8 @@ RUN set -eux; \
            ESUM='ea9de44b853172b5c6594fbe3d81723a21ad978a225ac1fa393925349c4bb7b9'; \
            BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-extended-11.0.16.12_jdk-11.0.16-ga/Alibaba_Dragonwell_Extended_11.0.16.12.8_x64_alpine-linux.tar.gz'; \
          else \
-           ESUM='42d673d9effff252140e1402959881c3f255ee3a8b8776871fd8e775facb9584'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-standard-11.0.16.12_jdk-11.0.16-ga/Alibaba_Dragonwell_Standard_11.0.16.12.8_x64_linux.tar.gz'; \
+           ESUM='44ca11f491873863e43bb6e476df7fd8fa453c563a932cf488b9d00ab7ef68c9'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-standard-11.0.16.12_jdk-11.0.16-ga/Alibaba_Dragonwell_Standard_11.0.16.12.8_x64_alpine-linux.tar.gz'; \
          fi \
          ;; \
        *) \
