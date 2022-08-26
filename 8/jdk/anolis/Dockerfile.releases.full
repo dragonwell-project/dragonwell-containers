@@ -20,7 +20,7 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 RUN yum install -y tzdata openssl curl ca-certificates fontconfig gzip tar \
     && yum clean all
 
-ENV JAVA_VERSION jdk8u332-b09
+ENV JAVA_VERSION jdk8u345-b01
 
 ARG EDITION=extended
 
@@ -29,8 +29,8 @@ RUN set -eux; \
     case "${ARCH}" in \
        aarch64|arm64) \
          if [ "${EDITION}" = "extended" ];then \
-           ESUM='544a2b75c1b5963664395fba4b58bc6012cd1db36b68c0f1886d81d657a0b24b'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-8.11.12_jdk8u332-ga/Alibaba_Dragonwell_8.11.12_aarch64_linux.tar.gz'; \
+           ESUM='12a8620a55dd85dc604bad71a770e235bbb773a301f5c1e12ba00c4d2bb9cea0'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-extended-8.12.13_jdk8u345-ga/Alibaba_Dragonwell_Extended_8.12.13_aarch64_linux.tar.gz'; \
          else \
            ESUM='544a2b75c1b5963664395fba4b58bc6012cd1db36b68c0f1886d81d657a0b24b'; \
            BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-8.11.12_jdk8u332-ga/Alibaba_Dragonwell_8.11.12_aarch64_linux.tar.gz'; \
@@ -38,8 +38,8 @@ RUN set -eux; \
          ;; \
        amd64|i386:x86-64) \
          if [ "${EDITION}" = "extended" ];then \
-           ESUM='03923f200dffddf9eee2aadc0c495674fe0b87cc2eece94a9a8dec84812d12bd'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-8.11.12_jdk8u332-ga/Alibaba_Dragonwell_8.11.12_x64_linux.tar.gz'; \
+           ESUM='0bb3a9b6109e29da6c7a0534cff9f34a0a16cab79ea850ebac7f7f9cfd071148'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-extended-8.12.13_jdk8u345-ga/Alibaba_Dragonwell_Extended_8.12.13_x64_linux.tar.gz'; \
          else \
            ESUM='03923f200dffddf9eee2aadc0c495674fe0b87cc2eece94a9a8dec84812d12bd'; \
            BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-8.11.12_jdk8u332-ga/Alibaba_Dragonwell_8.11.12_x64_linux.tar.gz'; \
