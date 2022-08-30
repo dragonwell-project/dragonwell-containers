@@ -20,7 +20,7 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
 RUN yum install -y tzdata openssl curl ca-certificates fontconfig gzip tar \
     && yum clean all
 
-COPY slim/* /usr/local/bin/
+COPY slim /usr/local/bin/slim
 
 ENV JAVA_VERSION jdk-11.0.16.12+8
 
@@ -57,16 +57,12 @@ RUN set -eux; \
     mkdir -p /opt/java/openjdk; \
     cd /opt/java/openjdk; \
     tar -xf /tmp/openjdk.tar.gz --strip-components=1; \
-    rm -rf /tmp/openjdk.tar.gz;
+    export PATH="/opt/java/openjdk/bin:$PATH"; \
+    bash /usr/local/bin/slim/slim-java.sh /opt/java/openjdk; \
+    rm -rf /tmp/openjdk.tar.gz /usr/local/bin/slim;
 
 ENV JAVA_HOME=/opt/java/openjdk \
     PATH="/opt/java/openjdk/bin:$PATH"
-
-RUN cd /opt/java/; \
-    bash /usr/local/bin/slim-java.sh openjdk; \
-    mv openjdk openjdk-bak; \
-    mv openjdk-bak/slim openjdk; \
-    rm -rf openjdk-bak;
 
 RUN echo Verifying install ... \
     && echo javac --version && javac --version \

@@ -56,7 +56,7 @@ done
 src="$1"
 # Store necessary directories paths
 basedir=$(dirname "${src}")
-scriptdir=$(dirname "$0")
+scriptdir=$(realpath $(dirname "$0"))
 target="${basedir}"/slim
 
 # Files for Keep and Del list of classes in rt.jar
