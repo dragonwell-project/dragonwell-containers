@@ -15,7 +15,7 @@ ARG OS_ARCH=x86_64
 
 FROM openanolis/anolisos:8.6-${OS_ARCH}
 
-ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
+ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
 
 RUN yum install -y tzdata openssl curl ca-certificates fontconfig gzip tar binutils \
     && yum clean all
