@@ -22,7 +22,7 @@ RUN apt-get update \
     && locale-gen en_US.UTF-8 \
     && rm -rf /var/lib/apt/lists/*
 
-ENV JAVA_VERSION jdk8u345-b01
+ENV JAVA_VERSION jdk8u352-b01
 
 ARG EDITION=extended
 
@@ -31,8 +31,8 @@ RUN set -eux; \
     case "${ARCH}" in \
        aarch64|arm64) \
          if [ "${EDITION}" = "extended" ];then \
-           ESUM='12a8620a55dd85dc604bad71a770e235bbb773a301f5c1e12ba00c4d2bb9cea0'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-extended-8.12.13_jdk8u345-ga/Alibaba_Dragonwell_Extended_8.12.13_aarch64_linux.tar.gz'; \
+           ESUM='b61a8f3736f0a26b1557307f31673417bf764be15c193edf8cdbd8009e6c3566'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-extended-8.13.14_jdk8u352-ga/Alibaba_Dragonwell_Extended_8.13.14_aarch64_linux.tar.gz'; \
          else \
            ESUM='b368b47f771be507b96e435b1a5fc41cb133762cdc86a7801150f25bf1e58421'; \
            BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-standard-8.12.13_jdk8u345-ga/Alibaba_Dragonwell_Standard_8.12.13_aarch64_linux.tar.gz'; \
@@ -40,8 +40,8 @@ RUN set -eux; \
          ;; \
        amd64|i386:x86-64) \
          if [ "${EDITION}" = "extended" ];then \
-           ESUM='0bb3a9b6109e29da6c7a0534cff9f34a0a16cab79ea850ebac7f7f9cfd071148'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-extended-8.12.13_jdk8u345-ga/Alibaba_Dragonwell_Extended_8.12.13_x64_linux.tar.gz'; \
+           ESUM='59fc886d8e2dd3d8ebbe3d378dafa0d37fe20cc24d366e2bbcc7958edbbf6566'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-extended-8.13.14_jdk8u352-ga/Alibaba_Dragonwell_Extended_8.13.14_x64_linux.tar.gz'; \
          else \
            ESUM='64c00ba16e2eb4bf5f867f6a0604d8f82e0627c61d45d7edddc87cec641d9dd7'; \
            BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-standard-8.12.13_jdk8u345-ga/Alibaba_Dragonwell_Standard_8.12.13_x64_linux.tar.gz'; \
