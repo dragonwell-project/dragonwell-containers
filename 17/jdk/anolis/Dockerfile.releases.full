@@ -20,7 +20,7 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
 RUN yum install -y tzdata openssl curl ca-certificates fontconfig gzip tar binutils \
     && yum clean all
 
-ENV JAVA_VERSION jdk-17.0.4.0.4+8
+ENV JAVA_VERSION jdk-17.0.5.0.5+8
 
 ARG EDITION=extended
 
@@ -32,8 +32,8 @@ RUN set -eux; \
            ESUM='84c9571fccb7e028c59657712e686cd1560d760a560ee8c76d0f99e2795aafcd'; \
            BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_aarch64_linux.tar.gz'; \
          else \
-           ESUM='1e7b974b860e9062c8a65dab4c71f84b20527b08866062a67c38963017a5f3fe'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-standard-17.0.4.0.4%2B8_jdk-17.0.4-ga/Alibaba_Dragonwell_Standard_17.0.4.0.4%2B8_aarch64_linux.tar.gz'; \
+           ESUM='929be7d0d0aa7c2bd196db4b6f3ead10dbeb240afc9db6c68974e79961c59003'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-standard-17.0.5.0.5%2B8_jdk-17.0.5-ga/Alibaba_Dragonwell_Standard_17.0.5.0.5.8_aarch64_linux.tar.gz'; \
          fi \
          ;; \
        amd64|i386:x86-64) \
@@ -41,8 +41,8 @@ RUN set -eux; \
            ESUM='8431922266c1a476e1ca2d49c68110c22ec4f989ca0438b0b089ecd9c7ade0ce'; \
            BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_x64_linux.tar.gz'; \
          else \
-           ESUM='31b3b6293b6645de7c531d16427ec38809ffaa0ef2db9a29c9c2230c5dc10eec'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-standard-17.0.4.0.4%2B8_jdk-17.0.4-ga/Alibaba_Dragonwell_Standard_17.0.4.0.4%2B8_x64_linux.tar.gz'; \
+           ESUM='a505dea63fd58925a1512dad77d5fdc9bc6c2ebb42f065001091eb31e30ed43f'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-standard-17.0.5.0.5%2B8_jdk-17.0.5-ga/Alibaba_Dragonwell_Standard_17.0.5.0.5.8_x64_linux.tar.gz'; \
          fi \
          ;; \
        *) \
