@@ -31,7 +31,7 @@ RUN set -eux; \
     case "${ARCH}" in \
        aarch64|arm64) \
          if [ "${EDITION}" = "extended" ];then \
-           ESUM='71977cd1046519f61c195cea42d4d8028b612f7016008bfb9ae6cf3595947bd6'; \
+           ESUM='87546423fa952bfbf52a4f8aafa89ae579bc498c5d139d8e30063da625aa5a88'; \
            BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-extended-8.13.14_jdk8u352-ga/Alibaba_Dragonwell_Extended_8.13.14_aarch64_linux.tar.gz'; \
          else \
            ESUM='1cc019db94abf0b828620565c1118f96ef6884ad394bf96b77786c26771be61c'; \
@@ -40,7 +40,7 @@ RUN set -eux; \
          ;; \
        amd64|i386:x86-64) \
          if [ "${EDITION}" = "extended" ];then \
-           ESUM='6fcacfeaa4cb37385dbc5cfdf9ad6759df98e1d2eabbaca94668cba56d242ae3'; \
+           ESUM='b9219b1b9d97069591b240a78003d0a8e782e84a8b7b1d08749afe7565d4e409'; \
            BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-extended-8.13.14_jdk8u352-ga/Alibaba_Dragonwell_Extended_8.13.14_x64_linux.tar.gz'; \
          else \
            ESUM='45b20c04ba93f8c25f1dcc75966bec461224ee9f875fdf3f49a09eb4606f3149'; \
