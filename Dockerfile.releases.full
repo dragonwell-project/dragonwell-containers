@@ -11,9 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-ARG OS_ARCH=x86_64
-
-FROM openanolis/anolisos:8.6-${OS_ARCH}
+FROM openanolis/anolisos:8.6
 
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
 
@@ -22,7 +20,8 @@ RUN yum install -y tzdata openssl curl ca-certificates fontconfig gzip tar binut
 
 ENV JAVA_VERSION jdk-17.0.5.0.5+8
 
-ARG EDITION=extended
+ARG EDITION=standard
+ARG MAINLAND=true
 
 RUN set -eux; \
     ARCH="$(objdump="$(command -v objdump)" && objdump --file-headers "$objdump" | awk -F '[:,]+[[:space:]]+' '$1 == "architecture" { print $2 }')"; \
@@ -33,7 +32,11 @@ RUN set -eux; \
            BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_aarch64_linux.tar.gz'; \
          else \
            ESUM='929be7d0d0aa7c2bd196db4b6f3ead10dbeb240afc9db6c68974e79961c59003'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-standard-17.0.5.0.5%2B8_jdk-17.0.5-ga/Alibaba_Dragonwell_Standard_17.0.5.0.5.8_aarch64_linux.tar.gz'; \
+           if [ "${MAINLAND}" = "true" ]; then \
+             BINARY_URL='https://dragonwell.oss-cn-shanghai.aliyuncs.com/17.0.5.0.5%2B8/Alibaba_Dragonwell_Standard_17.0.5.0.5%2B8_aarch64_linux.tar.gz'; \
+           else \
+             BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-standard-17.0.5.0.5%2B8_jdk-17.0.5-ga/Alibaba_Dragonwell_Standard_17.0.5.0.5.8_aarch64_linux.tar.gz'; \
+           fi \
          fi \
          ;; \
        amd64|i386:x86-64) \
@@ -42,7 +45,11 @@ RUN set -eux; \
            BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_x64_linux.tar.gz'; \
          else \
            ESUM='a505dea63fd58925a1512dad77d5fdc9bc6c2ebb42f065001091eb31e30ed43f'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-standard-17.0.5.0.5%2B8_jdk-17.0.5-ga/Alibaba_Dragonwell_Standard_17.0.5.0.5.8_x64_linux.tar.gz'; \
+           if [ "${MAINLAND}" = "true" ]; then \
+             BINARY_URL='https://dragonwell.oss-cn-shanghai.aliyuncs.com/17.0.5.0.5%2B8/Alibaba_Dragonwell_Standard_17.0.5.0.5%2B8_x64_linux.tar.gz'; \
+           else \
+             BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-standard-17.0.5.0.5%2B8_jdk-17.0.5-ga/Alibaba_Dragonwell_Standard_17.0.5.0.5.8_x64_linux.tar.gz'; \
+           fi \
          fi \
          ;; \
        *) \
