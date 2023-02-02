@@ -20,7 +20,7 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
 RUN yum install -y tzdata openssl curl ca-certificates fontconfig gzip tar \
     && yum clean all
 
-ENV JAVA_VERSION jdk8u352-b01
+ENV JAVA_VERSION jdk8u362-b01
 
 ARG EDITION=extended
 
@@ -32,8 +32,8 @@ RUN set -eux; \
            ESUM='87546423fa952bfbf52a4f8aafa89ae579bc498c5d139d8e30063da625aa5a88'; \
            BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-extended-8.13.14_jdk8u352-ga/Alibaba_Dragonwell_Extended_8.13.14_aarch64_linux.tar.gz'; \
          else \
-           ESUM='1cc019db94abf0b828620565c1118f96ef6884ad394bf96b77786c26771be61c'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-standard-8.13.14_jdk8u352-ga/Alibaba_Dragonwell_Standard_8.13.14_aarch64_linux.tar.gz'; \
+           ESUM='28e378fc28a8b7ce309c331cf9a782d5298d3679faa1c1a28dbb87e39c5aeca0'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-standard-8.14.15_jdk8u362-ga/Alibaba_Dragonwell_Standard_8.14.15_aarch64_linux.tar.gz'; \
          fi \
          ;; \
        amd64|i386:x86-64) \
@@ -41,8 +41,8 @@ RUN set -eux; \
            ESUM='b9219b1b9d97069591b240a78003d0a8e782e84a8b7b1d08749afe7565d4e409'; \
            BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-extended-8.13.14_jdk8u352-ga/Alibaba_Dragonwell_Extended_8.13.14_x64_linux.tar.gz'; \
          else \
-           ESUM='45b20c04ba93f8c25f1dcc75966bec461224ee9f875fdf3f49a09eb4606f3149'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-standard-8.13.14_jdk8u352-ga/Alibaba_Dragonwell_Standard_8.13.14_x64_linux.tar.gz'; \
+           ESUM='5d28a375543d2264ee54b3b9713ac63f8465526b7d6daf3701aa8a95daab7880'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-standard-8.14.15_jdk8u362-ga/Alibaba_Dragonwell_Standard_8.14.15_x64_linux.tar.gz'; \
          fi \
          ;; \
        *) \
