@@ -31,8 +31,8 @@ RUN set -eux; \
     case "${ARCH}" in \
        aarch64|arm64) \
          if [ "${EDITION}" = "extended" ];then \
-           ESUM='d56122ebfee4ded7066955675f0ac2474ef6355547e9de838cd18bf7c7d8ac57'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-extended-11.0.17.13_jdk-11.0.17-ga/Alibaba_Dragonwell_Extended_11.0.17.13.8_aarch64_linux.tar.gz'; \
+           ESUM='04d257942c75eb487075b675da0dcec6319dbf9dcdc5ed93eafbd427398f4e08'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-extended-11.0.18.14_jdk-11.0.18-ga/Alibaba_Dragonwell_Extended_11.0.18.14.9_aarch64_linux.tar.gz'; \
          else \
            ESUM='cc05189481c899c434e25320bf3de9c03b72ac7e1bc2950fe749ed9063340f65'; \
            BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-standard-11.0.18.14_jdk-11.0.18-ga/Alibaba_Dragonwell_Standard_11.0.18.14.9_aarch64_linux.tar.gz'; \
@@ -40,8 +40,8 @@ RUN set -eux; \
          ;; \
        amd64|i386:x86-64) \
          if [ "${EDITION}" = "extended" ];then \
-           ESUM='9a01b3799883485263158241625a7abf72d4696cb2f3a7e069f1b5df8d1e30cd'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-extended-11.0.17.13_jdk-11.0.17-ga/Alibaba_Dragonwell_Extended_11.0.17.13.8_x64_linux.tar.gz'; \
+           ESUM='4d02a4cce2d13ead8d54650c5e9bf560a6a1f79b6e7281fbb46e31ea3c20a341'; \
+           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-extended-11.0.18.14_jdk-11.0.18-ga/Alibaba_Dragonwell_Extended_11.0.18.14.9_x64_linux.tar.gz'; \
          else \
            ESUM='2360b063f1099c0ab7def15ec83c7344ae21038e5a85139132dc4005a8d5a940'; \
            BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-standard-11.0.18.14_jdk-11.0.18-ga/Alibaba_Dragonwell_Standard_11.0.18.14.9_x64_linux.tar.gz'; \
