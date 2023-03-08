@@ -11,9 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-ARG OS_ARCH=x86_64
-
-FROM openanolis/anolisos:8.6-${OS_ARCH}
+FROM openanolis/anolisos:8.6
 
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
 
