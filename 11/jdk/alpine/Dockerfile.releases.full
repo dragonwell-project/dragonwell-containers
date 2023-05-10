@@ -19,7 +19,7 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 RUN apk add --no-cache ca-certificates musl-locales musl-locales-lang openssl tzdata wget
 
 
-ENV JAVA_VERSION jdk-11.0.18.14+9
+ENV JAVA_VERSION jdk-11.0.19.15+7
 
 ARG EDITION=extended
 
@@ -31,8 +31,8 @@ RUN set -eux; \
            ESUM='b96fe388db94a9386e8ad22a2bca068f3a6218f9fd57e8266eed000bc32ce199'; \
            BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-extended-11.0.18.14_jdk-11.0.18-ga/Alibaba_Dragonwell_Extended_11.0.18.14.9_x64_alpine-linux.tar.gz'; \
          else \
-           ESUM='f548cd3103c85dcbd5990a0e6a99b925edb8dae7c6acbd80a4b4381b0a282f71'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell11/releases/download/dragonwell-standard-11.0.18.14_jdk-11.0.18-ga/Alibaba_Dragonwell_Standard_11.0.18.14.9_x64_alpine-linux.tar.gz'; \
+           ESUM='d57b940d2e111027948c63fb302621295621720c950e11cbae51c0924807bf19'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-standard-11.0.19.15_jdk-11.0.19-ga/Alibaba_Dragonwell_Standard_11.0.19.15.7_x64_alpine-linux.tar.gz'; \
          fi \
          ;; \
        *) \
