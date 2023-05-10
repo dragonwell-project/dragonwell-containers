@@ -19,7 +19,7 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 RUN yum install -y tzdata openssl curl ca-certificates fontconfig gzip tar \
     && yum clean all
 
-ENV JAVA_VERSION jdk8u362-b01
+ENV JAVA_VERSION jdk8u372-b01
 
 ARG EDITION=extended
 
@@ -31,8 +31,8 @@ RUN set -eux; \
            ESUM='77556147af80cc1c0e65e311a01092cee73dd17f1085726ffaed7dffc1f8e1b3'; \
            BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-extended-8.14.15_jdk8u362-ga/Alibaba_Dragonwell_Extended_8.14.15_aarch64_linux.tar.gz'; \
          else \
-           ESUM='28e378fc28a8b7ce309c331cf9a782d5298d3679faa1c1a28dbb87e39c5aeca0'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-standard-8.14.15_jdk8u362-ga/Alibaba_Dragonwell_Standard_8.14.15_aarch64_linux.tar.gz'; \
+           ESUM='8bd8bbbda4b42b8c24dc86ba2a425d061dc64dad8961c3ff3a0d486b38f0fce1'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell8/releases/download/dragonwell-standard-8.15.16_jdk8u372-ga/Alibaba_Dragonwell_Standard_8.15.16_aarch64_linux.tar.gz'; \
          fi \
          ;; \
        amd64|i386:x86-64) \
@@ -40,8 +40,8 @@ RUN set -eux; \
            ESUM='c3858ce1c7310fd0984b0c3906a273b27207e40fca426759dbdf570ae748454e'; \
            BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-extended-8.14.15_jdk8u362-ga/Alibaba_Dragonwell_Extended_8.14.15_x64_linux.tar.gz'; \
          else \
-           ESUM='5d28a375543d2264ee54b3b9713ac63f8465526b7d6daf3701aa8a95daab7880'; \
-           BINARY_URL='https://github.com/alibaba/dragonwell8/releases/download/dragonwell-standard-8.14.15_jdk8u362-ga/Alibaba_Dragonwell_Standard_8.14.15_x64_linux.tar.gz'; \
+           ESUM='a5da46c30e955d435c19dccbb494d02e52167fafd2d9b0b2f1b88005808cedad'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell8/releases/download/dragonwell-standard-8.15.16_jdk8u372-ga/Alibaba_Dragonwell_Standard_8.15.16_x64_linux.tar.gz'; \
          fi \
          ;; \
        *) \
