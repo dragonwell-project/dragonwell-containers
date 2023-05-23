@@ -1,0 +1,55 @@
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+FROM alpine:3.16
+
+ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
+
+RUN apk add --no-cache ca-certificates musl-locales musl-locales-lang openssl tzdata wget
+
+
+ENV JAVA_VERSION jdk-11.0.19.15+7
+
+RUN set -eux; \
+    ARCH="$(apk --print-arch)"; \
+    case "${ARCH}" in \
+       amd64|x86_64) \
+         ESUM='d57b940d2e111027948c63fb302621295621720c950e11cbae51c0924807bf19'; \
+         BINARY_URL='https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-standard-11.0.19.15_jdk-11.0.19-ga/Alibaba_Dragonwell_Standard_11.0.19.15.7_x64_alpine-linux.tar.gz'; \
+         ;; \
+       *) \
+         echo "Unsupported arch: ${ARCH}"; \
+         exit 1; \
+         ;; \
+    esac; \
+	  wget -O /tmp/openjdk.tar.gz ${BINARY_URL}; \
+	  echo "${ESUM} */tmp/openjdk.tar.gz" | sha256sum -c -; \
+	  mkdir -p /opt/java/openjdk; \
+	  tar --extract \
+	      --file /tmp/openjdk.tar.gz \
+	      --directory /opt/java/openjdk \
+	      --strip-components 1 \
+	      --no-same-owner \
+	  ; \
+    rm -rf /tmp/openjdk.tar.gz;
+
+ENV JAVA_HOME=/opt/java/openjdk \
+    PATH="/opt/java/openjdk/bin:$PATH"
+
+RUN echo Verifying install ... \
+    && echo javac --version && javac --version \
+    && echo java --version && java --version \
+    && echo Complete.
+
+CMD ["jshell"]
