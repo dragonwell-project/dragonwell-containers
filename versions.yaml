@@ -1,0 +1,310 @@
+dragonwell:
+  8-standard:
+    anolis:
+      registries:
+      - dragonwell
+      - anolis
+      images:
+      - dockerfile: 8-standard/anolis8.6/Dockerfile
+        builds:
+        - tags:
+          - 8.15.6-standard-ga-anolis-8.6
+          - 8-standard-ga-anolis-8.6
+      - dockerfile: 8-standard/anolis8.6/Dockerfile.slim
+        builds:
+        - tags:
+          - 8.15.6-standard-ga-anolis-8.6-slim
+          - 8-standard-ga-anolis-8.6-slim
+      - dockerfile: 8-standard/anolis8.8/Dockerfile
+        builds:
+        - tags:
+          - 8.15.6-standard-ga-anolis-8.8
+          - 8-standard-ga-anolis-8.8
+      - dockerfile: 8-standard/anolis8.8/Dockerfile.slim
+        builds:
+        - tags:
+          - 8.15.6-standard-ga-anolis-8.8-slim
+          - 8-standard-ga-anolis-8.8-slim
+    alinux:
+      registries:
+      - dragonwell
+      - alinux
+      images:
+      - dockerfile: 8-standard/alinux3/Dockerfile
+        builds:
+        - tags:
+          - 8.15.6-standard-ga-alinux-3
+          - 8-standard-ga-alinux-3
+    centos:
+      registries:
+      - dragonwell
+      images:
+      - dockerfile: 8-standard/centos7/Dockerfile
+        builds:
+        - tags:
+          - 8.15.6-standard-ga-centos-7
+          - 8-standard-ga-centos-7
+    ubuntu:
+      registries:
+      - dragonwell
+      images:
+      - dockerfile: 8-standard/ubuntu20.04/Dockerfile
+        builds:
+        - tags:
+          - 8.15.6-standard-ga-ubuntu-20.04
+          - 8-standard-ga-ubuntu-20.04
+  8-extended:
+    anolis:
+      registries:
+      - dragonwell
+      - anolis
+      images:
+      - dockerfile: 8-extended/anolis8.6/Dockerfile
+        builds:
+        - tags:
+          - 8.15.6-extended-ga-anolis-8.6
+          - 8-extended-ga-anolis-8.6
+      - dockerfile: 8-extended/anolis8.6/Dockerfile.slim
+        builds:
+        - tags:
+          - 8.15.6-extended-ga-anolis-8.6-slim
+          - 8-extended-ga-anolis-8.6-slim
+      - dockerfile: 8-extended/anolis8.8/Dockerfile
+        builds:
+        - tags:
+          - 8.15.6-extended-ga-anolis-8.8
+          - 8-extended-ga-anolis-8.8
+          - 8-anolis
+          - '8'
+      - dockerfile: 8-extended/anolis8.8/Dockerfile.slim
+        builds:
+        - tags:
+          - 8.15.6-extended-ga-anolis-8.8-slim
+          - 8-extended-ga-anolis-8.8-slim
+          - 8-anolis-slim
+          - 8-slim
+    alinux:
+      registries:
+      - dragonwell
+      - alinux
+      images:
+      - dockerfile: 8-extended/alinux3/Dockerfile
+        builds:
+        - tags:
+          - 8.15.6-extended-ga-alinux-3
+          - 8-extended-ga-alinux-3
+          - 8-alinux
+    centos:
+      registries:
+      - dragonwell
+      images:
+      - dockerfile: 8-extended/centos7/Dockerfile
+        builds:
+        - tags:
+          - 8.15.6-extended-ga-centos-7
+          - 8-extended-ga-centos-7
+          - 8-centos
+    ubuntu:
+      registries:
+      - dragonwell
+      images:
+      - dockerfile: 8-extended/ubuntu20.04/Dockerfile
+        builds:
+        - tags:
+          - 8.15.6-extended-ga-ubuntu-20.04
+          - 8-extended-ga-ubuntu-20.04
+          - 8-ubuntu
+  11-standard:
+    anolis:
+      registries:
+      - dragonwell
+      - anolis
+      images:
+      - dockerfile: 11-standard/anolis8.6/Dockerfile
+        builds:
+        - tags:
+          - 11.0.19.15-standard-ga-anolis-8.6
+          - 11-standard-ga-anolis-8.6
+      - dockerfile: 11-standard/anolis8.6/Dockerfile.slim
+        builds:
+        - tags:
+          - 11.0.19.15-standard-ga-anolis-8.6-slim
+          - 11-standard-ga-anolis-8.6-slim
+      - dockerfile: 11-standard/anolis8.8/Dockerfile
+        builds:
+        - tags:
+          - 11.0.19.15-standard-ga-anolis-8.8
+          - 11-standard-ga-anolis-8.8
+      - dockerfile: 11-standard/anolis8.8/Dockerfile.slim
+        builds:
+        - tags:
+          - 11.0.19.15-standard-ga-anolis-8.8-slim
+          - 11-standard-ga-anolis-8.8-slim
+    alinux:
+      registries:
+      - dragonwell
+      - alinux
+      images:
+      - dockerfile: 11-standard/alinux3/Dockerfile
+        builds:
+        - tags:
+          - 11.0.19.15-standard-ga-alinux-3
+          - 11-standard-ga-alinux-3
+    centos:
+      registries:
+      - dragonwell
+      images:
+      - dockerfile: 11-standard/centos7/Dockerfile
+        builds:
+        - tags:
+          - 11.0.19.15-standard-ga-centos-7
+          - 11-standard-ga-centos-7
+    ubuntu:
+      registries:
+      - dragonwell
+      images:
+      - dockerfile: 11-standard/ubuntu20.04/Dockerfile
+        builds:
+        - tags:
+          - 11.0.19.15-standard-ga-ubuntu-20.04
+          - 11-standard-ga-ubuntu-20.04
+    alpine:
+      registries:
+      - dragonwell
+      images:
+      - dockerfile: 11-standard/alpine3.16/Dockerfile
+        builds:
+        - tags:
+          - 11.0.19.15-standard-ga-alpine-3.16
+          - 11-standard-ga-alpine-3.16
+  11-extended:
+    anolis:
+      registries:
+      - dragonwell
+      - anolis
+      images:
+      - dockerfile: 11-extended/anolis8.6/Dockerfile
+        builds:
+        - tags:
+          - 11.0.19.15-extended-ga-anolis-8.6
+          - 11-extended-ga-anolis-8.6
+      - dockerfile: 11-extended/anolis8.6/Dockerfile.slim
+        builds:
+        - tags:
+          - 11.0.19.15-extended-ga-anolis-8.6-slim
+          - 11-extended-ga-anolis-8.6-slim
+      - dockerfile: 11-extended/anolis8.8/Dockerfile
+        builds:
+        - tags:
+          - 11.0.19.15-extended-ga-anolis-8.8
+          - 11-extended-ga-anolis-8.8
+          - 11-anolis
+          - '11'
+          - latest
+      - dockerfile: 11-extended/anolis8.8/Dockerfile.slim
+        builds:
+        - tags:
+          - 11.0.19.15-extended-ga-anolis-8.8-slim
+          - 11-extended-ga-anolis-8.8-slim
+          - 11-anolis-slim
+          - 11-slim
+    alinux:
+      registries:
+      - dragonwell
+      - alinux
+      images:
+      - dockerfile: 11-extended/alinux3/Dockerfile
+        builds:
+        - tags:
+          - 11.0.19.15-extended-ga-alinux-3
+          - 11-extended-ga-alinux-3
+          - 11-alinux
+    centos:
+      registries:
+      - dragonwell
+      images:
+      - dockerfile: 11-extended/centos7/Dockerfile
+        builds:
+        - tags:
+          - 11.0.19.15-extended-ga-centos-7
+          - 11-extended-ga-centos-7
+          - 11-centos
+    ubuntu:
+      registries:
+      - dragonwell
+      images:
+      - dockerfile: 11-extended/ubuntu20.04/Dockerfile
+        builds:
+        - tags:
+          - 11.0.19.15-extended-ga-ubuntu-20.04
+          - 11-extended-ga-ubuntu-20.04
+          - 11-ubuntu
+    alpine:
+      registries:
+      - dragonwell
+      images:
+      - dockerfile: 11-extended/alpine3.16/Dockerfile
+        builds:
+        - tags:
+          - 11.0.19.15-extended-ga-alpine-3.16
+          - 11-extended-ga-alpine-3.16
+          - 11-alpine
+  17-standard:
+    anolis:
+      registries:
+      - dragonwell
+      - anolis
+      images:
+      - dockerfile: 17-standard/anolis8.6/Dockerfile
+        builds:
+        - tags:
+          - 17.0.7.0.7+7-standard-ga-anolis-8.6
+          - 17-standard-ga-anolis-8.6
+      - dockerfile: 17-standard/anolis8.8/Dockerfile
+        builds:
+        - tags:
+          - 17.0.7.0.7+7-standard-ga-anolis-8.8
+          - 17-standard-ga-anolis-8.8
+          - 17-anolis
+          - '17'
+    alinux:
+      registries:
+      - dragonwell
+      - alinux
+      images:
+      - dockerfile: 17-standard/alinux3/Dockerfile
+        builds:
+        - tags:
+          - 17.0.7.0.7+7-standard-ga-alinux-3
+          - 17-standard-ga-alinux-3
+          - 17-alinux
+    centos:
+      registries:
+      - dragonwell
+      images:
+      - dockerfile: 17-standard/centos7/Dockerfile
+        builds:
+        - tags:
+          - 17.0.7.0.7+7-standard-ga-centos-7
+          - 17-standard-ga-centos-7
+          - 17-centos
+    ubuntu:
+      registries:
+      - dragonwell
+      images:
+      - dockerfile: 17-standard/ubuntu20.04/Dockerfile
+        builds:
+        - tags:
+          - 17.0.7.0.7+7-standard-ga-ubuntu-20.04
+          - 17-standard-ga-ubuntu-20.04
+          - 17-ubuntu
+    alpine:
+      registries:
+      - dragonwell
+      images:
+      - dockerfile: 17-standard/alpine3.16/Dockerfile
+        builds:
+        - tags:
+          - 17.0.7.0.7+7-standard-ga-alpine-3.16
+          - 17-standard-ga-alpine-3.16
+          - 17-alpine
