@@ -31,7 +31,7 @@ RUN set -eux; \
            ESUM='4620312ff9fa2772aed71315280af7c4c65cfa91e4a77bd47f6471ed279ed8a7'; \
            BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_x64_alpine-linux.tar.gz'; \
          else \
-           ESUM='14d556e3fa3e28de91eeeebf987eb5968e14ab6448a643bc06cbb3cedfd864a6'; \
+           ESUM='af87410c7f86535d68ed4e239a7eb190dc3ff13756060e50063c6af8e7e09e0c'; \
            BINARY_URL='https://github.com/dragonwell-project/dragonwell17/releases/download/dragonwell-standard-17.0.7.0.7%2B7_jdk-17.0.7-ga/Alibaba_Dragonwell_Standard_17.0.7.0.7.7_x64_alpine-linux.tar.gz'; \
          fi \
          ;; \
