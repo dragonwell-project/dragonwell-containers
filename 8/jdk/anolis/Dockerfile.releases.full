@@ -18,7 +18,7 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en'
 RUN yum install -y tzdata openssl curl ca-certificates fontconfig gzip tar \
     && yum clean all
 
-ENV JAVA_VERSION jdk8u372-b01
+ENV JAVA_VERSION jdk8u382-b01
 
 ARG EDITION=extended
 
@@ -27,8 +27,8 @@ RUN set -eux; \
     case "${ARCH}" in \
        aarch64|arm64) \
          if [ "${EDITION}" = "extended" ];then \
-           ESUM='42f9f6630eb77c0a273c1952139edb3b87d5f14b6795eceb14f20b03df402c33'; \
-           BINARY_URL='https://github.com/dragonwell-project/dragonwell8/releases/download/dragonwell-extended-8.15.16_jdk8u372-ga/Alibaba_Dragonwell_Extended_8.15.16_aarch64_linux.tar.gz'; \
+           ESUM='2602b8f707b1a15a628bfdc9396bfdf9906d420172871e64a02a1604871cdc91'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell8/releases/download/dragonwell-extended-8.16.17_jdk8u382-ga/Alibaba_Dragonwell_Extended_8.16.17_aarch64_linux.tar.gz'; \
          else \
            ESUM='8bd8bbbda4b42b8c24dc86ba2a425d061dc64dad8961c3ff3a0d486b38f0fce1'; \
            BINARY_URL='https://github.com/dragonwell-project/dragonwell8/releases/download/dragonwell-standard-8.15.16_jdk8u372-ga/Alibaba_Dragonwell_Standard_8.15.16_aarch64_linux.tar.gz'; \
@@ -36,8 +36,8 @@ RUN set -eux; \
          ;; \
        amd64|i386:x86-64) \
          if [ "${EDITION}" = "extended" ];then \
-           ESUM='f50a0695cce5cdfea78de4cc369ef1213137fc05ebdfe438be022a3d2cdde05a'; \
-           BINARY_URL='https://github.com/dragonwell-project/dragonwell8/releases/download/dragonwell-extended-8.15.16_jdk8u372-ga/Alibaba_Dragonwell_Extended_8.15.16_x64_linux.tar.gz'; \
+           ESUM='fe79b0c2081f894f82396179abb4dac93c6e887df07d1321ca3e5dca596ebea7'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell8/releases/download/dragonwell-extended-8.16.17_jdk8u382-ga/Alibaba_Dragonwell_Extended_8.16.17_x64_linux.tar.gz'; \
          else \
            ESUM='a5da46c30e955d435c19dccbb494d02e52167fafd2d9b0b2f1b88005808cedad'; \
            BINARY_URL='https://github.com/dragonwell-project/dragonwell8/releases/download/dragonwell-standard-8.15.16_jdk8u372-ga/Alibaba_Dragonwell_Standard_8.15.16_x64_linux.tar.gz'; \
