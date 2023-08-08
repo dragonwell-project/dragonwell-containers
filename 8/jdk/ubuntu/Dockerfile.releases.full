@@ -34,8 +34,8 @@ RUN set -eux; \
            ESUM='2602b8f707b1a15a628bfdc9396bfdf9906d420172871e64a02a1604871cdc91'; \
            BINARY_URL='https://github.com/dragonwell-project/dragonwell8/releases/download/dragonwell-extended-8.16.17_jdk8u382-ga/Alibaba_Dragonwell_Extended_8.16.17_aarch64_linux.tar.gz'; \
          else \
-           ESUM='8bd8bbbda4b42b8c24dc86ba2a425d061dc64dad8961c3ff3a0d486b38f0fce1'; \
-           BINARY_URL='https://github.com/dragonwell-project/dragonwell8/releases/download/dragonwell-standard-8.15.16_jdk8u372-ga/Alibaba_Dragonwell_Standard_8.15.16_aarch64_linux.tar.gz'; \
+           ESUM='18f4b12c983a38425de86d6f13b46de0526ee9a19dbdeba3431fad35cb6e7b15'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell8/releases/download/dragonwell-standard-8.16.17_jdk8u382-ga/Alibaba_Dragonwell_Standard_8.16.17_aarch64_linux.tar.gz'; \
          fi \
          ;; \
        amd64|i386:x86-64) \
@@ -43,8 +43,8 @@ RUN set -eux; \
            ESUM='fe79b0c2081f894f82396179abb4dac93c6e887df07d1321ca3e5dca596ebea7'; \
            BINARY_URL='https://github.com/dragonwell-project/dragonwell8/releases/download/dragonwell-extended-8.16.17_jdk8u382-ga/Alibaba_Dragonwell_Extended_8.16.17_x64_linux.tar.gz'; \
          else \
-           ESUM='a5da46c30e955d435c19dccbb494d02e52167fafd2d9b0b2f1b88005808cedad'; \
-           BINARY_URL='https://github.com/dragonwell-project/dragonwell8/releases/download/dragonwell-standard-8.15.16_jdk8u372-ga/Alibaba_Dragonwell_Standard_8.15.16_x64_linux.tar.gz'; \
+           ESUM='18d483c5cc1c16591fce9a84c605275570c5ea325c15a2ecb4e05e7a81956e72'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell8/releases/download/dragonwell-standard-8.16.17_jdk8u382-ga/Alibaba_Dragonwell_Standard_8.16.17_x64_linux.tar.gz'; \
          fi \
          ;; \
 
