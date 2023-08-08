@@ -19,7 +19,7 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 RUN yum install binutils -y tzdata openssl curl ca-certificates fontconfig gzip tar binutils \
     && yum clean all
 
-ENV JAVA_VERSION jdk-17.0.7.0.7+7
+ENV JAVA_VERSION jdk-17.0.8.0.8+7
 
 ARG EDITION=extended
 
@@ -31,8 +31,8 @@ RUN set -eux; \
            ESUM='84c9571fccb7e028c59657712e686cd1560d760a560ee8c76d0f99e2795aafcd'; \
            BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_aarch64_linux.tar.gz'; \
          else \
-           ESUM='4ea898126aa125d0c63f3e3e69ab8e4debbde28edc6966a75b5b7a334effbea4'; \
-           BINARY_URL='https://github.com/dragonwell-project/dragonwell17/releases/download/dragonwell-standard-17.0.7.0.7%2B7_jdk-17.0.7-ga/Alibaba_Dragonwell_Standard_17.0.7.0.7.7_aarch64_linux.tar.gz'; \
+           ESUM='5666b32a26be8bbed4fb6de5f5053824e2b9f96d2f645b0e9240ab3d0b1d3f26'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell17/releases/download/dragonwell-standard-17.0.8.0.8%2B7_jdk-17.0.8-ga/Alibaba_Dragonwell_Standard_17.0.8.0.8.7_aarch64_linux.tar.gz'; \
          fi \
          ;; \
        amd64|i386:x86-64) \
@@ -40,8 +40,8 @@ RUN set -eux; \
            ESUM='8431922266c1a476e1ca2d49c68110c22ec4f989ca0438b0b089ecd9c7ade0ce'; \
            BINARY_URL='https://github.com/alibaba/dragonwell17/releases/download/dragonwell-17.0.3.0.3%2B7_jdk-17.0.3-ga/Alibaba_Dragonwell_17.0.3.0.3+7_x64_linux.tar.gz'; \
          else \
-           ESUM='71da2a40da319df3cc80374fee33d041c87449418350e0762e093a32fe383e69'; \
-           BINARY_URL='https://github.com/dragonwell-project/dragonwell17/releases/download/dragonwell-standard-17.0.7.0.7%2B7_jdk-17.0.7-ga/Alibaba_Dragonwell_Standard_17.0.7.0.7.7_x64_linux.tar.gz'; \
+           ESUM='fc76ae2b7540681999f13dc10f7be653db9c1f4effbeebb9f525901d5b9aa09a'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell17/releases/download/dragonwell-standard-17.0.8.0.8%2B7_jdk-17.0.8-ga/Alibaba_Dragonwell_Standard_17.0.8.0.8.7_x64_linux.tar.gz'; \
          fi \
          ;; \
        *) \
