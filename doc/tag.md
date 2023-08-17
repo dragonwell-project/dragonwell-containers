@@ -16,7 +16,7 @@ ${repository}:${version}-${type}
 | Version | Architecture  | Platform             |
 |---------|---------------|----------------------|
 | 8       | amd64,aarch64 | centos,ubuntu,anolis |
-| 11      | amd64,aarch64 | alpine,centos,ubutnu |
+| 11      | amd64,aarch64 | alpine,centos,ubuntu |
 | 17      | amd64,aarch64 | alpine,centos,ubuntu |
 
 ### type
