@@ -19,7 +19,7 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 RUN apk add --no-cache ca-certificates musl-locales musl-locales-lang openssl tzdata wget
 
 
-ENV JAVA_VERSION jdk-11.0.20.16+8
+ENV JAVA_VERSION jdk-11.0.20.17+8
 
 ARG EDITION=extended
 
@@ -28,8 +28,8 @@ RUN set -eux; \
     case "${ARCH}" in \
        amd64|x86_64) \
          if [ "${EDITION}" = "extended" ];then \
-           ESUM='3ef0f7509d8a9a11608a0dd9665c682e2d59e70cdcddcb8829d122af953be17c'; \
-           BINARY_URL='https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-extended-11.0.20.16_jdk-11.0.20-ga/Alibaba_Dragonwell_Extended_11.0.20.16.8_x64_alpine-linux.tar.gz'; \
+           ESUM='656afcb828f09af9abc8e918181e607eccef40e76f82345f253038390c3dce90'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-extended-11.0.20.17_jdk-11.0.20-GA/Alibaba_Dragonwell_Extended_11.0.20.17.8_x64_alpine-linux.tar.gz'; \
          else \
            ESUM='cdbfc9135b93439e0b37b02050a4d53d1f82ce6e4154ac54b31d17fe3c76f11d'; \
            BINARY_URL='https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-standard-11.0.20.16_jdk-11.0.20-ga/Alibaba_Dragonwell_Standard_11.0.20.16.8_x64_alpine-linux.tar.gz'; \
