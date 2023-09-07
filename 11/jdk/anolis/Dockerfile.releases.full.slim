@@ -20,7 +20,7 @@ RUN yum install -y tzdata openssl curl ca-certificates fontconfig gzip tar \
 
 COPY slim /usr/local/bin/slim
 
-ENV JAVA_VERSION jdk-11.0.20.16+8
+ENV JAVA_VERSION jdk-11.0.20.17+8
 
 ARG EDITION=extended
 
@@ -29,8 +29,8 @@ RUN set -eux; \
     case "${ARCH}" in \
        aarch64|arm64) \
          if [ "${EDITION}" = "extended" ];then \
-           ESUM='4e905c60c58d860043be8cb3b83e8d6445ac314c5815b52557b6e89e10a1bbc7'; \
-           BINARY_URL='https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-extended-11.0.20.16_jdk-11.0.20-ga/Alibaba_Dragonwell_Extended_11.0.20.16.8_aarch64_linux.tar.gz'; \
+           ESUM='2dc7bd1ad96cc9aa2aefb27003851d07b6a9c2940bfab9982fac86b8e5b52b0d'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-extended-11.0.20.17_jdk-11.0.20-GA/Alibaba_Dragonwell_Extended_11.0.20.17.8_aarch64_linux.tar.gz'; \
          else \
            ESUM='5c0b7ad09352d3cb2b55fd641c94daefb1d51b87aaee12a3ed2aad88d533effa'; \
            BINARY_URL='https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-standard-11.0.20.16_jdk-11.0.20-ga/Alibaba_Dragonwell_Standard_11.0.20.16.8_aarch64_linux.tar.gz'; \
@@ -38,8 +38,8 @@ RUN set -eux; \
          ;; \
        amd64|i386:x86-64) \
          if [ "${EDITION}" = "extended" ];then \
-           ESUM='b7397d3fdffb3574b2b9fe47d58fb6d8230100c417a37c636bda4641b6408223'; \
-           BINARY_URL='https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-extended-11.0.20.16_jdk-11.0.20-ga/Alibaba_Dragonwell_Extended_11.0.20.16.8_x64_linux.tar.gz'; \
+           ESUM='83f7fb3afe467b2f91c5404dc9d6dee0346d90ae827a3954a897b7e55f3b290b'; \
+           BINARY_URL='https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-extended-11.0.20.17_jdk-11.0.20-GA/Alibaba_Dragonwell_Extended_11.0.20.17.8_x64_linux.tar.gz'; \
          else \
            ESUM='5011ac706a856b58642ba51615eaa5d874f94cd8abe6e56fbc32666130893419'; \
            BINARY_URL='https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-standard-11.0.20.16_jdk-11.0.20-ga/Alibaba_Dragonwell_Standard_11.0.20.16.8_x64_linux.tar.gz'; \
