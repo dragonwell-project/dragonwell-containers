@@ -34,7 +34,7 @@ Dragonwell 11和17针对alpine平台提供了alpine构建，体积更小，目�
 | Version | Architecture  | Platform             |
 |---------|---------------|----------------------|
 | 8       | amd64,aarch64 | centos,ubuntu,anolis,alinux |
-| 11      | amd64,aarch64 | alpine,centos,ubutnu,alinux |
+| 11      | amd64,aarch64 | alpine,centos,ubuntu,alinux |
 | 17      | amd64,aarch64 | alpine,centos,ubuntu,alinux |
 
 #### 小版本支持
